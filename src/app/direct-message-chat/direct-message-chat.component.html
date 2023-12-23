@@ -45,9 +45,10 @@
                     {{messagemention['name']}}</a>
                   <span class="word-break">{{ message.content }}</span>
                 </div>
-                <div class="d-flex">
+
+                <div class="file-order">
                   <div *ngFor="let messagefile of message.files">
-                    <img style="max-height: 100px; margin-top: 10px;" *ngIf="this.authService.isImage(messagefile)"
+                    <img class="upload-pic" *ngIf="this.authService.isImage(messagefile)"
                       src="{{messagefile}}" alt="Angehängtes Bild">
                     <div class="pdf" *ngIf="this.authService.isPDF(messagefile)">
                       <img src="assets/img/icons/pdf.svg" />
@@ -55,6 +56,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div *ngIf="message.creatorId == currentUser.id && editingMessage === message.id">
                   <div *ngSwitchCase="true" class="text-field-container j-flex-end">
                     <textarea #editor cols="30" rows="10">{{ message.content }}</textarea>

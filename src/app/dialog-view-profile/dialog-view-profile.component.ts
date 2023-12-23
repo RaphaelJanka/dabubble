@@ -15,7 +15,7 @@ import { ThreadService } from '../services/thread.service';
 @Component({
   selector: 'app-dialog-view-profile',
   templateUrl: './dialog-view-profile.component.html',
-  styleUrls: ['./dialog-view-profile.component.scss', './dialog-view-profile.mediaquery.component.scss']
+  styleUrls: ['./dialog-view-profile.component.scss']
 })
 
 export class DialogViewProfileComponent {

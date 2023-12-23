@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-dialog-show-group-member',
   templateUrl: './dialog-show-group-member.component.html',
-  styleUrls: ['./dialog-show-group-member.component.scss', './dialog-show-group-member.mediaquery.component.scss']
+  styleUrls: ['./dialog-show-group-member.component.scss']
 })
 export class DialogShowGroupMemberComponent implements OnInit {
   currentChat!: Channel | undefined;

@@ -111,6 +111,9 @@
     .reaction-container {
         align-items: flex-end;
     }
+    .file-order {
+        justify-content: flex-end;
+    }
  
 }
 
@@ -381,4 +384,16 @@ mat-card-header {
 
 .display-none {
     display: none;
+}
+
+.file-order {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.upload-pic {
+    max-height: 100px; 
+    margin-top: 10px;
+    border-radius: 32px;
 }
