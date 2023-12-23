@@ -7,7 +7,6 @@ import { DialogViewProfileComponent } from '../dialog-view-profile/dialog-view-p
 import { UserService } from '../services/user.service';
 import { User } from 'src/models/user.class';
 
-
 @Component({
   selector: 'app-bottom-sheet',
   templateUrl: './bottom-sheet.component.html',
@@ -20,7 +19,6 @@ export class BottomSheet {
     this.currentUser = this.userService.currentUser as User;
   }
 
-
   /**
    * Logs out the current user and navigates to the login screen.
    */
@@ -29,8 +27,7 @@ export class BottomSheet {
     this.authService.signOutUser();
     this.router.navigate(['']);
   }
-  
-  
+    
   /**
   * Opens the profile view dialog for a specific user.
   * @param {any} id - The ID of the user.

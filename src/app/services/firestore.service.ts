@@ -23,7 +23,6 @@ export class FirestoreService {
   firstThreeItems: any[] = [];
   allUsers: User[] = [];
   filteredUsers: User[] = [];
-  // searchInput: string = '';
   showSpinner = false;
   showThreadSpinner = false;
   messageAdded = new EventEmitter<void>();
@@ -39,9 +38,10 @@ export class FirestoreService {
   allDirectMessages: Message[] = [];
   messageIsExisting!: boolean;
 
-  // --------------------------------------------------------------------------------------------------------
-  //These functions create a channel and update its id
-
+  /**
+   * These function creates a channel and update its id
+   * @param channel 
+   */
   async addChannel(channel: Channel) {
     await addDoc(collection(this.firestore, 'channels'), channel.toJSON())
       .catch((err) => {
@@ -143,7 +143,6 @@ export class FirestoreService {
     await this.updateChannelMessage(colId, message);
   }
 
-
   async updateChannelMessage(colId: string, message: Message) {
     const docRef = doc(collection(this.firestore, colId), message.id);
     await updateDoc(docRef, this.getUpdateChannelMessageData(message)).catch(
@@ -156,6 +155,7 @@ export class FirestoreService {
       id: message.id,
     };
   }
+
   //----------------------------------------------------------------------------------------------------
   /**
    * This function loads all members of a channel
@@ -367,7 +367,6 @@ export class FirestoreService {
       this.messageAddedInDirect.emit();
     });
   }
-  //------------------------------------------------------------------------------------------------------
 
   /**
    * Sorts all messages according to their date

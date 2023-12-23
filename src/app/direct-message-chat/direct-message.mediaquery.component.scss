@@ -1,38 +1,46 @@
 @media (max-width: 1279px) {
+
     .message-content,
     .my-message-content {
         font-size: 12px;
         max-width: 350px;
     }
+
     .name {
         font-size: 16px;
     }
+
     .date {
         font-size: 10px;
     }
+
     .comments {
         font-size: 12px;
     }
+
     .last-comment {
         font-size: 10px;
     }
+
     .time-box {
         border-radius: 10px;
         padding: 0px 8px;
         font-size: 10px;
     }
+
     .creator-picture-container {
         img {
             height: 50px;
             width: 50px;
         }
     }
+
     .profile-button {
         font-size: 18px;
+
         img {
             height: 50px;
             width: 50px;
-    
         }
     }
 }
@@ -45,6 +53,7 @@
         height: 100px;
         align-items: center;
     }
+
     .profile-container {
         img {
             cursor: pointer;
@@ -58,6 +67,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+
         span {
             font-size: 22px !important;
             font-weight: bold !important;
@@ -71,21 +81,24 @@
     mat-card-header {
         padding: 4px 16px;
     }
-    
+
     .chat-window-container {
         height: calc(100vh - 92px);
         border-radius: 0;
 
-        @media(max-width: 350px){
+        @media(max-width: 350px) {
             height: calc(100vh - 82px);
         }
     }
+
     .text-field-container {
         margin: 0;
     }
+
     .main-responsive {
         left: 133px !important;
     }
+
     .profile-container {
         img {
             height: 50px;
@@ -97,11 +110,13 @@
 @media (max-width: 500px) {
     .chat-partner-container {
         font-size: 20px;
+
         img {
             height: 80px;
             width: 80px;
         }
     }
+
     .main-responsive {
         left: 86px !important;
         border-radius: 32px !important;

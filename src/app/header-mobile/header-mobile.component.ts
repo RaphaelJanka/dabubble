@@ -29,7 +29,6 @@ export class HeaderMobileComponent {
     });
   }
 
-
   /**
    * Checks if routerlink is home
    */

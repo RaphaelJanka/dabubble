@@ -94,7 +94,6 @@ export class DialogAddChannelComponent {
     this.channel.members.push(...formattedUsers);
   }
 
-
   /**
    * Stops event propagation when a user element is selected.
    * @param {Event} event - The event associated with user selection.
@@ -102,7 +101,6 @@ export class DialogAddChannelComponent {
   userSelected(event: Event) {
     event.stopPropagation();
   }
-
 
   /**
    * Adds the current user to the list of selected members if they are not already included.
@@ -114,7 +112,6 @@ export class DialogAddChannelComponent {
     }
   }
 
-
   /**
    * Removes a user from the list of selected members.
    * @param {User} user - The user object to be removed.
@@ -125,7 +122,6 @@ export class DialogAddChannelComponent {
       this.selectedUsers.splice(index, 1);
     }
   }
-
   
   /**
    * Toggles the selection state of a user when clicked and updates the list of selected members.
@@ -141,7 +137,6 @@ export class DialogAddChannelComponent {
       this.removeUser(user)
     }
   }
-
 
   /**
    * Toggles the highlighted state of a user container button.

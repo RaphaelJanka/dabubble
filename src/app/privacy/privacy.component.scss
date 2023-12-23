@@ -1,5 +1,3 @@
-
-
 mat-card {
     margin: 16px;
     position: relative;
@@ -26,15 +24,12 @@ header {
     top: 10px;
 }
 
-
-
-
 @media (max-width: 500px) {
     p {
         font-size: 12px;
     }
+
     a {
         font-size: 8px;
     }
-
 }

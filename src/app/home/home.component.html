@@ -5,10 +5,12 @@
     </div>
 
     <div class="add-members-container">
-      <input #search class="w100 input-members search" type="text" placeholder="Search"
-        [(ngModel)]="searchInput" (input)="filterEverything()" (click)="this.homeInputFocused = true;">
+      <input #search class="w100 input-members search" type="text" placeholder="Search" [(ngModel)]="searchInput"
+        (input)="filterEverything()" (click)="this.homeInputFocused = true;">
       <div class="user-search-container home-search" *ngIf="homeInputFocused">
-        <div *ngIf="this.searchInput.trim() !== '' && !(filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredDirectMessages.length === 0)" class="search-results">
+        <div
+          *ngIf="this.searchInput.trim() !== '' && !(filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredDirectMessages.length === 0)"
+          class="search-results">
 
           <h1>Users:</h1>
           <div *ngIf="firestoreService.filteredUsers.length !== 0">
@@ -55,7 +57,6 @@
             </div>
           </div>
           <span *ngIf="filteredDirectMessages.length === 0">No matching results</span>
-
         </div>
         <span
           *ngIf="searchInput.trim() === '' || filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredDirectMessages.length === 0">No
@@ -107,7 +108,9 @@
         (input)="filterEverything()" (click)="this.homeInputFocused = true;">
       <div class="user-search-container" *ngIf="homeInputFocused">
 
-        <div *ngIf="this.searchInput.trim() !== '' && !(filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredChannelMessages.length === 0)" class="search-results">
+        <div
+          *ngIf="this.searchInput.trim() !== '' && !(filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredChannelMessages.length === 0)"
+          class="search-results">
 
           <h1>Users:</h1>
           <div *ngIf="firestoreService.filteredUsers.length !== 0">
@@ -139,7 +142,6 @@
           </div>
           <span *ngIf="filteredChannelMessages.length === 0">No matching results</span>
 
-
           <h1>Direct Messages:</h1>
           <div *ngIf="filteredDirectMessages.length !== 0">
             <div class="found-msg-container" *ngFor="let message of filteredDirectMessages"
@@ -155,10 +157,10 @@
             </div>
           </div>
           <span *ngIf="filteredDirectMessages.length === 0">No matching results</span>
-
         </div>
         <span
-          *ngIf="searchInput.trim() === '' || filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredChannelMessages.length === 0">No matching results</span>
+          *ngIf="searchInput.trim() === '' || filteredChannelMessages.length === 0 && firestoreService.filteredUsers.length === 0 && filteredChannelMessages.length === 0">No
+          matching results</span>
       </div>
     </div>
     <app-workspace></app-workspace>

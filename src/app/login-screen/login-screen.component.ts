@@ -200,7 +200,6 @@ export class LoginScreenComponent implements OnInit {
     await this.authService.createUser();
     this.signInSuccess();
     await this.userService.addUser(this.newUser as User);
-
     await this.authService.signInUser(this.userService.currentEmail, this.userService.currentPassword);
   }
 

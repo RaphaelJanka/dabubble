@@ -39,7 +39,6 @@ export class WorkspaceComponent implements OnInit {
     this.currentUser = userService.currentUser;
   }
 
-
   /**
    * Initializes the component, loading channels, direct messages, and users.
    */
@@ -53,7 +52,6 @@ export class WorkspaceComponent implements OnInit {
     })
   }
 
-
   /**
    * Cleans up subscriptions when the component is destroyed.
    */
@@ -65,7 +63,6 @@ export class WorkspaceComponent implements OnInit {
       this.unSubMessages();
     }
   }
-
 
   /**
    * Loads all direct messages from the Firestore and sets up a subscription.
@@ -83,7 +80,6 @@ export class WorkspaceComponent implements OnInit {
     );
   }
 
-
   /**
    * Loads all users from the Firestore and sets up a subscription.
    */
@@ -98,8 +94,6 @@ export class WorkspaceComponent implements OnInit {
       }
     );
   }
-
-
 
   /**
    * Filters the direct messages to show only those relevant to the current user.
@@ -129,7 +123,6 @@ export class WorkspaceComponent implements OnInit {
     }
   }
 
-
   /**
    * Opens a specific channel in the chat service.
    * @param {Channel} channel - The channel to be opened.
@@ -144,7 +137,6 @@ export class WorkspaceComponent implements OnInit {
     }
   }
 
-
   /**
    * Opens a specific chat in the chat service.
    * @param {Chat} chat - The chat to be opened.
@@ -158,14 +150,12 @@ export class WorkspaceComponent implements OnInit {
     }
   }
 
-
   /**
    * Sets the chat window to start a new message.
    */
   startNewMessage() {
     this.chatservice.chatWindow = 'newMessage';
   }
-
 
   /**
    * Deletes a specific direct message chat from the Firestore database.
@@ -192,7 +182,6 @@ export class WorkspaceComponent implements OnInit {
       this.router.navigate(['newMessage']);
     }
   }
-
 
   /**
    * Retrieves the other user in a conversation based on the provided members array.

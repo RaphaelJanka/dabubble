@@ -10,7 +10,7 @@
     }
 }
 
-@media (max-width: 799px ) {
+@media (max-width: 799px) {
     mat-card {
         width: 100%;
         height: 100vh;
@@ -18,13 +18,13 @@
     }
 }
 
-@media (max-width: 450px ) {
+@media (max-width: 450px) {
     .user-search-container {
         left: 18px;
     }
+
     .user-container {
         padding: 6px;
         max-width: 210px;
     }
-    
 }

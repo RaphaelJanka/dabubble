@@ -26,11 +26,7 @@ header {
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @media(max-width: 1650px){
-            max-width: 150px;
-        }
-
-        @media(max-width: 1650px){
+        @media(max-width: 1650px) {
             max-width: 150px;
         }
     }
@@ -73,8 +69,6 @@ h1 {
 main {
     display: flex;
     justify-content: space-between;
-    // height: 500px;
-    // height: calc(100vh - 80px);
 }
 
 .workspace-button {
@@ -98,7 +92,7 @@ main {
 }
 
 .offline-status {
-    background-color: grey!important;
+    background-color: grey !important;
 }
 
 mat-drawer-container {
@@ -148,11 +142,11 @@ mat-drawer {
     text-overflow: ellipsis;
     max-width: 300px;
 
-    @media(max-width: 950px){
+    @media(max-width: 950px) {
         max-width: 200px;
     }
 
-    @media(max-width: 390px){
+    @media(max-width: 390px) {
         max-width: 130px;
     }
 }

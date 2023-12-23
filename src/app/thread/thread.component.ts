@@ -44,7 +44,7 @@ export class ThreadComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<HTMLDivElement>;
 
   constructor(public threadService: ThreadService, public dialog: MatDialog, public userService: UserService,
-    public authService: AuthService, public chatService: ChatService, public emojiService: EmojiService, 
+    public authService: AuthService, public chatService: ChatService, public emojiService: EmojiService,
     public firestoreService: FirestoreService, public router: Router) {
     userService.getCurrentUserFromLocalStorage();
     this.currentUser = this.userService.currentUser;
@@ -74,7 +74,7 @@ export class ThreadComponent implements OnInit {
       this.userService.setCurrentChatToLocalStorage(message);
     }
     if (!this.currentMessage || this.currentMessage.id !== message.id) {
-     this.loadThread(message)
+      this.loadThread(message)
     }
   }
 
@@ -101,10 +101,8 @@ export class ThreadComponent implements OnInit {
     if (this.currentMessage.type = 'direct') {
       this.threadService.isThreadInDM = true;
     }
-
-   
   }
-  
+
   ngOnDestroy() {
     if (this.firestoreService.unSubThread) {
       this.firestoreService.unSubThread(); // Bestehendes Abonnement kündigen
@@ -125,7 +123,7 @@ export class ThreadComponent implements OnInit {
     }
     this.scrollToBottom();
     this.showUploadedFile = false;
-    this.taggedNames ="";
+    this.taggedNames = "";
   }
 
   /**
@@ -139,7 +137,7 @@ export class ThreadComponent implements OnInit {
     this.message.creatorId = this.userService.currentUser.id;
     this.message.channelID = this.currentMessage.id;
   }
-  
+
   /**
    * Scrolls the chat window to the bottom, showing the most recent messages.
    */
@@ -167,7 +165,7 @@ export class ThreadComponent implements OnInit {
   getUserNameString(user: any) {
     let taggedName: any;
     taggedName = `@${user.name}`;
-    this.taggedNames +=  `@${user.name}`;
+    this.taggedNames += `@${user.name}`;
     this.message.content += taggedName!;
     this.message.mentions.push(user);
     this.userService.openUserContainerTextfield.next(false);
@@ -186,7 +184,7 @@ export class ThreadComponent implements OnInit {
    * Closes the emoji picker if it's open and no emoji has been selected.
    */
   closeEmojiPicker() {
-    if (this.emojiService.showThreadEmojiPicker == true  || this.emojiService.showThreadTextChatEmojiPicker == true &&  this.emojiService.emojiString == "") {
+    if (this.emojiService.showThreadEmojiPicker == true || this.emojiService.showThreadTextChatEmojiPicker == true && this.emojiService.emojiString == "") {
       this.emojiService.showThreadEmojiPicker = false;
       this.emojiService.showThreadTextChatEmojiPicker = false;
     }
@@ -212,7 +210,7 @@ export class ThreadComponent implements OnInit {
     this.emojiService.addEmojiTextChat($event);
     this.message.content += this.emojiService.emojiString;
     this.emojiService.showThreadTextChatEmojiPicker = false;
-      this.emojiService.emojiString = "";
+    this.emojiService.emojiString = "";
   }
 
   /**

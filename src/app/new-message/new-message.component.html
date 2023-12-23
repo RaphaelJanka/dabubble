@@ -1,60 +1,61 @@
 <app-header-mobile *ngIf="chatService.isMobile"></app-header-mobile>
 <div class="chat-window-container">
-    <mat-card-header>
-      <div class="w100 headline">
-        <h1>New Message</h1>
-        <div class="add-members-container">
-          <input #search class="w100 input-members" type="text" placeholder="To: @someone"
-            [(ngModel)]="searchInput" (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.newMsgInputFocused = true;">
-          <div class="user-search-container" *ngIf="newMsgInputFocused" (click)="userSelected($event)">
-            <div *ngIf="searchInput.trim() !== '' && firestoreService.filteredUsers.length > 0">
-                <button class="user-container" *ngFor="let user of firestoreService.filteredUsers"
-                (click)="selectUser(user)">
-                <div class="profile-container">
-                    <img src="{{user.picture}}" alt="profile">
-                    <div [ngClass]="{'offline-status': user.online === false}" class="online-status"></div>
-                </div>
-                <span>{{user.name}}</span>
-                </button>
-            </div>
-            <span *ngIf="searchInput.trim() === '' || firestoreService.filteredUsers.length == 0">No matching contact</span>
+  <mat-card-header>
+    <div class="w100 headline">
+      <h1>New Message</h1>
+      <div class="add-members-container">
+        <input #search class="w100 input-members" type="text" placeholder="To: @someone" [(ngModel)]="searchInput"
+          (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.newMsgInputFocused = true;">
+        <div class="user-search-container" *ngIf="newMsgInputFocused" (click)="userSelected($event)">
+          <div *ngIf="searchInput.trim() !== '' && firestoreService.filteredUsers.length > 0">
+            <button class="user-container" *ngFor="let user of firestoreService.filteredUsers"
+              (click)="selectUser(user)">
+              <div class="profile-container">
+                <img src="{{user.picture}}" alt="profile">
+                <div [ngClass]="{'offline-status': user.online === false}" class="online-status"></div>
+              </div>
+              <span>{{user.name}}</span>
+            </button>
           </div>
+          <span *ngIf="searchInput.trim() === '' || firestoreService.filteredUsers.length == 0">No matching
+            contact</span>
         </div>
       </div>
-    </mat-card-header>
+    </div>
+  </mat-card-header>
 
-    <mat-card-content class="empty-chat-container">
-      <span>Please choose a channel or direct message.</span>
-    </mat-card-content>
+  <mat-card-content class="empty-chat-container">
+    <span>Please choose a channel or direct message.</span>
+  </mat-card-content>
 
-    <mat-card-content class="textfield-content">
-      <div class="text-field-container">
-        <textarea disabled placeholder="Choose channel or direct Message or start a new conversation"></textarea>
-        <div class="message-buttons">
-          <div class="attachments">
-            <div class="border-right">
-              <button disabled mat-icon-button>
-                <label class="custom-file-upload">
-                  <input class="dataInput" type="file" accept="image/jpeg, image/png, application/pdf" >
-                  <img src="assets/img/icons/add.svg" />
-                </label>
-              </button>
-            </div>
+  <mat-card-content class="textfield-content">
+    <div class="text-field-container">
+      <textarea disabled placeholder="Choose channel or direct Message or start a new conversation"></textarea>
+      <div class="message-buttons">
+        <div class="attachments">
+          <div class="border-right">
             <button disabled mat-icon-button>
-              <img src="assets/img/icons/smiley.svg" />
-            </button>
-            <button disabled mat-icon-button>
-              <img src="assets/img/icons/@.svg" />
+              <label class="custom-file-upload">
+                <input class="dataInput" type="file" accept="image/jpeg, image/png, application/pdf">
+                <img src="assets/img/icons/add.svg" />
+              </label>
             </button>
           </div>
-          <button class="send-button" mat-icon-button disabled>
-            <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.5 19.2812C2.08333 19.4479 1.6875 19.4112 1.3125 19.1712C0.9375 18.9321 0.75 18.5833 0.75 18.125V13.4687C0.75 13.1771 0.833333 12.9167 1 12.6875C1.16667 12.4583 1.39583 12.3125 1.6875 12.25L10.75 9.99999L1.6875 7.74999C1.39583 7.68749 1.16667 7.54166 1 7.31249C0.833333 7.08333 0.75 6.82291 0.75 6.53124V1.87499C0.75 1.41666 0.9375 1.06749 1.3125 0.827493C1.6875 0.588327 2.08333 0.552076 2.5 0.718743L21.75 8.84374C22.2708 9.07291 22.5312 9.45833 22.5312 9.99999C22.5312 10.5417 22.2708 10.9271 21.75 11.1562L2.5 19.2812Z"
-                fill="#444DF2" />
-            </svg>
+          <button disabled mat-icon-button>
+            <img src="assets/img/icons/smiley.svg" />
+          </button>
+          <button disabled mat-icon-button>
+            <img src="assets/img/icons/@.svg" />
           </button>
         </div>
+        <button class="send-button" mat-icon-button disabled>
+          <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.5 19.2812C2.08333 19.4479 1.6875 19.4112 1.3125 19.1712C0.9375 18.9321 0.75 18.5833 0.75 18.125V13.4687C0.75 13.1771 0.833333 12.9167 1 12.6875C1.16667 12.4583 1.39583 12.3125 1.6875 12.25L10.75 9.99999L1.6875 7.74999C1.39583 7.68749 1.16667 7.54166 1 7.31249C0.833333 7.08333 0.75 6.82291 0.75 6.53124V1.87499C0.75 1.41666 0.9375 1.06749 1.3125 0.827493C1.6875 0.588327 2.08333 0.552076 2.5 0.718743L21.75 8.84374C22.2708 9.07291 22.5312 9.45833 22.5312 9.99999C22.5312 10.5417 22.2708 10.9271 21.75 11.1562L2.5 19.2812Z"
+              fill="#444DF2" />
+          </svg>
+        </button>
       </div>
-    </mat-card-content>
-  </div>
+    </div>
+  </mat-card-content>
+</div>

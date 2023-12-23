@@ -1,4 +1,4 @@
-import { HostListener, Injectable, OnInit, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Firestore, getDoc, getDocs, onSnapshot, orderBy, query, setDoc } from '@angular/fire/firestore';
 import { DocumentData, DocumentReference, collection, doc } from 'firebase/firestore';
 import { Channel } from 'src/models/channel.class';
@@ -43,17 +43,14 @@ export class ChatService {
     return this._openChatSubject.asObservable();
   }
 
-
   set openChat(channel: Channel | null) {
     this._openChatSubject.next(channel);
   }
-
 
   // ----------------- Direct Message --------------------------
   get openDirectMessage$(): Observable<Chat | null> {
     return this._openDirectMessageSubject.asObservable();
   }
-
 
   set openDirectMessage(chat: Chat | null) {
     this._openDirectMessageSubject.next(chat);
@@ -90,7 +87,6 @@ export class ChatService {
     this.unSubChannelMessages();
     this.unSubChannels();
   }
-
 
   /**
    * This function creates a direct message
@@ -144,7 +140,6 @@ export class ChatService {
       );
     });
   }
-
 
   /**
    * This function searches for a existing dm
@@ -347,7 +342,6 @@ export class ChatService {
     );
   }
 
-
   /**
    * Sets current channel
    * @param message 
@@ -360,7 +354,6 @@ export class ChatService {
       this.router.navigate(['main']);
     }
   }
-
 
   /**
    * Sets current dm

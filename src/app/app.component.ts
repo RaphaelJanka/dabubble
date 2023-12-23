@@ -21,8 +21,8 @@ export class AppComponent {
   onResize(event: any): void {
     if (this.router.url !== '/') {
       this.chatService.checkScreenWidth();
-      if (this.chatService.workspaceDrawerStateSubject.value == true && window.innerWidth >= 800 && window.innerWidth < 1350) {}
-        this.chatService.closeThread();
-      }
+      if (this.chatService.workspaceDrawerStateSubject.value == true && window.innerWidth >= 800 && window.innerWidth < 1350) { }
+      this.chatService.closeThread();
     }
+  }
 }

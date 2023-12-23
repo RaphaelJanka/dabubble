@@ -25,10 +25,8 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-
-
 
 .picture,
 .name {
@@ -60,6 +58,7 @@ h1 {
 .email-container {
     display: flex;
     margin-bottom: 32px !important;
+
     span {
         color: var(--purple3);
     }
@@ -96,6 +95,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
     input {
         width: 100%;
     }
@@ -118,7 +118,31 @@ form {
     display: flex;
     justify-content: center;
     width: 100%;
+
     button {
         margin: 0;
+    }
+}
+
+@media (max-width: 1279px) {
+    mat-card {
+        width: 350px;
+    }
+
+    .picture,
+    .name {
+        img {
+            height: 120px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    mat-card {
+        width: 90vw;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
     }
 }

@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { inject } from '@angular/core';
-import { Firestore, collection, doc, addDoc,getDocs,updateDoc, getDoc, setDoc, DocumentReference, DocumentData, onSnapshot, query, orderBy} from '@angular/fire/firestore';
+import { Firestore, collection, doc, addDoc, getDocs, updateDoc, getDoc, setDoc, DocumentReference, DocumentData, onSnapshot, query } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Thread } from 'src/models/thread.class';
 import { Channel } from 'src/models/channel.class';
@@ -26,14 +26,15 @@ export class ThreadService {
   changeChat = new EventEmitter<void>();
   isThreadInDM: boolean = false;
   allThreads: any[] = [];
-  allThreadMessages: any[]= [];
+  allThreadMessages: any[] = [];
   unSubThread: any;
+
   constructor(public router: Router, public userService: UserService, public chatService: ChatService) {
     this.getallThreads();
   }
 
   public _openMessageSubject: BehaviorSubject<Message | null> = new BehaviorSubject<Message | null>(null);
-  
+
   get openMessage$(): Observable<Message | null> {
     return this._openMessageSubject.asObservable();
   }
@@ -75,13 +76,13 @@ export class ThreadService {
     let threadId = thread.id;
     const subColRef = collection(this.firestore, `threads/${threadId}/messages`);
     await addDoc(subColRef, message.toJSON())
-    .catch((err) => {
-      console.log(err);
-    }).then((docRef: void | DocumentReference<DocumentData, DocumentData>) => {
-      if (docRef && docRef instanceof DocumentReference) {
-        this.updateChannelId('channels', message, docRef.id, subColRef);
-      }
-    });
+      .catch((err) => {
+        console.log(err);
+      }).then((docRef: void | DocumentReference<DocumentData, DocumentData>) => {
+        if (docRef && docRef instanceof DocumentReference) {
+          this.updateChannelId('channels', message, docRef.id, subColRef);
+        }
+      });
   }
 
   async updateChannelId(colId: string, message: Message, newId: string, subColRef: any) {
@@ -95,7 +96,7 @@ export class ThreadService {
   /**
    * This function updates the amount of thread messages of a message
    */
-  async updateThreadCount(message: Message,time: any) {
+  async updateThreadCount(message: Message, time: any) {
     message.threadCount = await this.countThreadMessages(message.id);
     if (this.isThreadInDM) {
       const subReactionColRef = doc(collection(this.firestore, `direct messages/${message.channelID}/messages/`), message.id);
@@ -112,13 +113,13 @@ export class ThreadService {
    * @param time - sent time
    * @returns - values
    */
-  updateMessage(message:any,time: any) {
+  updateMessage(message: any, time: any) {
     return {
       threadCount: message.threadCount,
       lastThreadTime: time,
     }
   }
-  
+
   /**
    * This function counts all messages inside of a thread
    * @param messageId - document reference
@@ -127,10 +128,10 @@ export class ThreadService {
   async countThreadMessages(messageId: any) {
     const threadCollection = collection(this.firestore, `threads/${messageId}/messages`);
     return getDocs(threadCollection)
-    .then(snapshot => {
-      let threadCount = snapshot.size;
-      return threadCount;
-    });
+      .then(snapshot => {
+        let threadCount = snapshot.size;
+        return threadCount;
+      });
   }
 
   async getallThreads() {
@@ -142,7 +143,7 @@ export class ThreadService {
           return thread;
         });
       }
-      
+
     );
   }
 
@@ -157,9 +158,4 @@ export class ThreadService {
       });
     }
   }
-
 }
-
-
-
-

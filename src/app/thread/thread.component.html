@@ -1,5 +1,4 @@
 <app-header-mobile *ngIf="chatService.isMobile"></app-header-mobile>
-
 <mat-card (click)="closeEmojiPicker()">
   <mat-card-header>
     <header>
@@ -11,7 +10,6 @@
       </button>
     </header>
   </mat-card-header>
-
 
   <mat-card-content #scrollContainer [scrollTop]="scrollPosition" class="p-0 main-chat-container">
       <section>
@@ -50,18 +48,15 @@
         </div>
       </section>
 
-      <div class="comments-container">
-        <span *ngIf="firestoreService.allThreadMessages.length == 1"
-          class="comments">{{firestoreService.allThreadMessages.length}}
-          Comment</span>
-        <span *ngIf="firestoreService.allThreadMessages.length >= 2"
-          class="comments">{{firestoreService.allThreadMessages.length}}
-          Comments</span>
-        <div class="separator"></div>
-      </div>
-
-
-
+    <div class="comments-container">
+      <span *ngIf="firestoreService.allThreadMessages.length == 1"
+        class="comments">{{firestoreService.allThreadMessages.length}}
+        Comment</span>
+      <span *ngIf="firestoreService.allThreadMessages.length >= 2"
+        class="comments">{{firestoreService.allThreadMessages.length}}
+        Comments</span>
+      <div class="separator"></div>
+    </div>
 
     <section>
       <div class="message-row-container" *ngFor="let thread of firestoreService.allThreadMessages;"
@@ -78,7 +73,8 @@
             </div>
 
             <div [ngSwitch]="edit && thread.creatorId == currentUser.id && editingThreadMessage === thread.id">
-              <div class="message" [ngClass]="{'my-message-content': thread.creatorId == currentUser.id, 'message-content': thread.creatorId != currentUser.id, 'display-none': thread.content == '' && thread.mentions.length == 0,}"
+              <div class="message"
+                [ngClass]="{'my-message-content': thread.creatorId == currentUser.id, 'message-content': thread.creatorId != currentUser.id, 'display-none': thread.content == '' && thread.mentions.length == 0,}"
                 *ngSwitchCase="false">
                 <a (click)="openProfileDialog(messagemention['id'])" *ngFor="let messagemention of thread.mentions">
                   &#64;{{messagemention['name']}}</a>
@@ -98,7 +94,8 @@
 
               <div *ngIf="thread.creatorId == currentUser.id && editingThreadMessage === thread.id">
                 <div *ngSwitchCase="true" class="text-field-container j-flex-end">
-                  <textarea (keyup.enter)="updateMessageContent(thread)" #editorThread cols="30" rows="10">{{thread.content}}</textarea>
+                  <textarea (keyup.enter)="updateMessageContent(thread)" #editorThread cols="30"
+                    rows="10">{{thread.content}}</textarea>
                   <button class="send-button" mat-icon-button (click)="updateMessageContent(thread)"
                     [disabled]="editorThread.value.length < 1">
                     <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +145,8 @@
 
   </mat-card-content>
 
-  <div class="user-search-container-textfield thread-search" *ngIf="this.userService.openUserContainerThreadTextfield.value == true">
+  <div class="user-search-container-textfield thread-search"
+    *ngIf="this.userService.openUserContainerThreadTextfield.value == true">
     <button (click)="getUserNameString(user)" class="user-container" *ngFor="let user of this.userService.users">
       <div class="profile-container">
         <img src="{{user.picture}}" alt="profile">
@@ -158,16 +156,16 @@
     </button>
   </div>
 
-
   <mat-card-content class="textfield-content">
     <div class="text-field-container">
-      <textarea  (keyup.enter)="addMessageToThread()"[(ngModel)]="message.content" placeholder="Comment..."></textarea>
+      <textarea (keyup.enter)="addMessageToThread()" [(ngModel)]="message.content" placeholder="Comment..."></textarea>
 
       <div class="message-buttons">
         <div class="attachments">
           <div class="border-right">
             <button class="mat-icon-button" type="submit"> <label class="custom-file-upload">
-                <input class="dataInput" (change)="onFileSelected($event)" type="file" accept="image/jpeg, image/png, application/pdf" >
+                <input class="dataInput" (change)="onFileSelected($event)" type="file"
+                  accept="image/jpeg, image/png, application/pdf">
                 <img style="z-index: 100;" src="assets/img/icons/add.svg" alt="" />
               </label>
             </button>
@@ -189,7 +187,8 @@
           </ng-container>
         </div>
 
-        <button [disabled]="!message.content && !showUploadedFile" (click)="addMessageToThread()" class="send-button" mat-icon-button>
+        <button [disabled]="!message.content && !showUploadedFile" (click)="addMessageToThread()" class="send-button"
+          mat-icon-button>
           <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M2.5 19.2812C2.08333 19.4479 1.6875 19.4112 1.3125 19.1712C0.9375 18.9321 0.75 18.5833 0.75 18.125V13.4687C0.75 13.1771 0.833333 12.9167 1 12.6875C1.16667 12.4583 1.39583 12.3125 1.6875 12.25L10.75 9.99999L1.6875 7.74999C1.39583 7.68749 1.16667 7.54166 1 7.31249C0.833333 7.08333 0.75 6.82291 0.75 6.53124V1.87499C0.75 1.41666 0.9375 1.06749 1.3125 0.827493C1.6875 0.588327 2.08333 0.552076 2.5 0.718743L21.75 8.84374C22.2708 9.07291 22.5312 9.45833 22.5312 9.99999C22.5312 10.5417 22.2708 10.9271 21.75 11.1562L2.5 19.2812Z"

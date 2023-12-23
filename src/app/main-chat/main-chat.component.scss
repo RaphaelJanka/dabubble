@@ -8,10 +8,12 @@
     .channel-button {
         display: flex;
         justify-content: flex-start;
+
         &:hover {
             h2 {
                 color: var(--purple3);
             }
+
             svg path {
                 fill: var(--purple3);
             }
@@ -39,47 +41,47 @@
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        @media(max-width: 2000px){
+        @media(max-width: 2000px) {
             max-width: 500px;
         }
 
-        @media(max-width: 1630px){
+        @media(max-width: 1630px) {
             max-width: 400px;
         }
 
-        @media(max-width: 1530px){
+        @media(max-width: 1530px) {
             max-width: 300px;
         }
 
-        @media(max-width: 1430px){
+        @media(max-width: 1430px) {
             max-width: 200px;
         }
 
-        @media(max-width: 1350px){
+        @media(max-width: 1350px) {
             max-width: 400px;
         }
 
-        @media(max-width: 1200px){
+        @media(max-width: 1200px) {
             max-width: 300px;
         }
 
-        @media(max-width: 1100px){
+        @media(max-width: 1100px) {
             max-width: 200px;
         }
 
-        @media(max-width: 1010px){
+        @media(max-width: 1010px) {
             max-width: 300px;
         }
 
-        @media(max-width: 850px){
+        @media(max-width: 850px) {
             max-width: 250px;
         }
 
-        @media(max-width: 400px){
+        @media(max-width: 400px) {
             max-width: 200px;
         }
 
-        @media(max-width: 340px){
+        @media(max-width: 340px) {
             max-width: 185px;
         }
     }
@@ -105,7 +107,7 @@ h2 {
 }
 
 .group-members-button {
-    padding: 6px 14px 6px 26px !important;
+    padding: 6px 6px 6px 26px !important;
     border-radius: 32px;
     height: fit-content;
     width: fit-content;
@@ -121,6 +123,7 @@ h2 {
         height: 50px;
         margin-left: -20px;
         border-radius: 50%;
+        background-color: white;
         border: 2px solid white;
     }
 }
@@ -149,6 +152,7 @@ mat-card-header {
     padding: 16px 0;
     background-color: white;
     margin: 0 32px;
+
     textarea {
         outline: 0;
         border: 0;

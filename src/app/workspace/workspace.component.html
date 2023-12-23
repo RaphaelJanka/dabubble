@@ -67,16 +67,15 @@
                   <div [ngClass]="{'offline-status': !getOtherUser(directMessage.members)?.online}"
                     class="online-status"></div>
                 </div>
-                <h3 class="chat-name">{{ getOtherUser(directMessage.members)?.name }} <span *ngIf="getOtherUser(directMessage.members)?.id == currentUser.id">(You)</span></h3>
+                <h3 class="chat-name">{{ getOtherUser(directMessage.members)?.name }} <span
+                    *ngIf="getOtherUser(directMessage.members)?.id == currentUser.id">(You)</span></h3>
               </button>
               <button *ngIf="getOtherUser(directMessage.members)?.id !== currentUser.id" matTooltip="Delete chat"
                 class="delete-direct-button" mat-icon-button (click)="deleteDirectMessageChat(directMessage.id)">
                 <img src="assets/img/icons/close.svg" alt="">
               </button>
             </div>
-
           </div>
-
         </mat-expansion-panel>
       </mat-accordion>
     </div>

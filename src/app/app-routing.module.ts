@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'thread', component: ThreadComponent },
   { path: 'add-channel', component: DialogAddChannelComponent },
   { path: 'newMessage', component: NewMessageComponent },
-
 ];
 
 @NgModule({

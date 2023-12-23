@@ -45,7 +45,6 @@ header {
     margin-bottom: 48px !important;
 }
 
-
 .pr-pl-8 {
     padding: 0 8px;
 }
@@ -120,8 +119,6 @@ mat-radio-group {
     background-color: var(--textGray);
 }
 
-
-
 .selected-user-container {
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +136,7 @@ mat-radio-group {
     background-color: var(--primary);
     border-radius: 24px;
 
-    img{
+    img {
         height: 30px;
         width: 30px;
         border-radius: 50%;

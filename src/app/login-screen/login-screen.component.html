@@ -38,7 +38,6 @@
             </mat-error>
           </div>
 
-          <div class="placeholder"></div>
           <div class="input-container"><img src="assets\img\icons\lock.svg"><input type="password" matInput
               placeholder="Password" [formControl]="loginpassword" required>
             <mat-error *ngIf="loginpassword.invalid && loginpassword.touched">
@@ -55,7 +54,7 @@
           <div class="bottom-line"></div>
         </div>
         <div (click)="loginWithGoogle()" mat-button class="input-container  cursor-pointer google-button">
-          <img src="assets\img\icons\google.svg">
+          <img src="assets\img\icons\google.png">
           <span class="color-purple2-text ">Login with google</span>
         </div>
         <div class="submit-buttons margin-top">
@@ -95,7 +94,7 @@
           <div class="placeholder"></div>
           <mat-error class="error error-bottom" *ngIf="addUser.get('newPassword')?.hasError('minlength')">
             You need apassword with minimum 8 letters
-          </mat-error> 
+          </mat-error>
           <mat-error class="error" *ngIf="this.userAlreadyInUse">This user already exists</mat-error>
         </div>
 
@@ -110,8 +109,6 @@
       </form>
     </div>
   </div>
-
-
 
   <div *ngSwitchCase="'avatar'" class="login bg-white margin-top30">
     <div class="form-container">
@@ -129,7 +126,7 @@
           </div>
         </div>
         <div class="upload-picture margin-top align-center">
-          <span class="font-size20"></span> 
+          <span class="font-size20"></span>
           <button mat-button class="main-button" type="submit">
             <label class="custom-file-upload">
               <input class="dataInput" (change)="onFileSelected($event)" type="file" accept="image/jpeg, image/png">

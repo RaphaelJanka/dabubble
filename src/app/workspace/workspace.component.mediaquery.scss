@@ -13,7 +13,6 @@
     mat-card {
         width: 100%;
         height: fit-content;
-        // min-height: calc(100vh - 182px);
         align-items: center;
         border-radius: 0 !important;
     }
@@ -30,7 +29,7 @@
     .chat-name {
         max-width: 500px;
     }
-    
+
     mat-expansion-panel-header {
         mat-panel-title {
             width: 240px;
@@ -39,7 +38,6 @@
 }
 
 @media(max-width: 565px) {
-
     .channel-name {
         max-width: 400px;
     }
@@ -50,7 +48,6 @@
 }
 
 @media(max-width: 465px) {
-
     .channel-name {
         max-width: 300px;
     }
@@ -61,7 +58,6 @@
 }
 
 @media(max-width: 365px) {
-
     .channel-name {
         max-width: 250px;
     }
@@ -75,9 +71,11 @@
     .direct-message-container {
         max-height: 200px;
     }
-    .channel-section{
+
+    .channel-section {
         max-height: 200px;
     }
+
     .channel-container {
         gap: 16px
     }
@@ -87,11 +85,13 @@
     .direct-message-container {
         max-height: 125px;
     }
-    .channel-section{
+
+    .channel-section {
         max-height: 145px;
         gap: 16px;
     }
-    .mat-expansion-panel-header{
+
+    .mat-expansion-panel-header {
         margin-bottom: 0 !important;
     }
 }

@@ -1,4 +1,4 @@
-<mat-card  [ngSwitch]="editState">
+<mat-card [ngSwitch]="editState">
     <mat-spinner *ngIf="firestoreService.showSpinner == true" class="mat-spinner"></mat-spinner>
     <mat-card-content *ngSwitchCase="false">
         <div class="header">
@@ -12,7 +12,8 @@
         </div>
         <div class="name">
             <h1>{{user.name}}</h1>
-            <span (click)="editState = true" *ngIf="currentUser.id == user.id && !userService.currentUser.name?.startsWith('Guest') && userService.currentUser.picture !== 'assets/img/icons/google.svg'">Edit</span>
+            <span (click)="editState = true"
+                *ngIf="currentUser.id == user.id && !userService.currentUser.name?.startsWith('Guest') && userService.currentUser.picture !== 'assets/img/icons/google.png'">Edit</span>
         </div>
         <div [ngSwitch]="user.online">
             <div class="status" *ngSwitchCase="false">
@@ -77,7 +78,8 @@
                 <img class="mr-16" src="assets/img/icons/mail.svg">
                 <h2>E-Mail Adress</h2>
             </div>
-            <input [(ngModel)]="editedUser.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required #mailInput="ngModel" name="editedUserEmail" type="email">
+            <input [(ngModel)]="editedUser.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+                #mailInput="ngModel" name="editedUserEmail" type="email">
             <mat-error *ngIf="mailInput.invalid">Please enter valid E-Mail</mat-error>
         </form>
 

@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { inject } from '@angular/core';
 import { Firestore, collection, doc, onSnapshot, addDoc, deleteDoc, updateDoc, DocumentReference, DocumentData, getDoc, setDoc, arrayUnion, } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/models/user.class';
 import { Chat } from 'src/models/chat.class';
 import { Channel } from 'src/models/channel.class';
@@ -30,7 +30,6 @@ export class UserService {
 
   ngOnInit() {
     this.getCurrentUserFromLocalStorage();
-
   }
 
   constructor(public router: Router) {
@@ -72,7 +71,6 @@ export class UserService {
       }
       )
   }
-
 
   async addNewUserToCommunityChannel(newUser: User) {
     const communityRef = doc(collection(this.firestore, 'channels'), 'pc0SH2i3MX85Uck7mLhd');
@@ -155,8 +153,6 @@ export class UserService {
     }
   }
 
-
-
   /**
    * Opens the user container text field after a short delay.
    * Uses a timeout to set the 'openUserContainerTextfield' property to true.
@@ -201,7 +197,6 @@ export class UserService {
     }
   }
 
-
   /**
    * Removes the serialized current user object from the local storage.
    * Uses the key 'currentUser' for removal in the local storage.
@@ -209,7 +204,6 @@ export class UserService {
   removeCurrentUserFromLocalStorage() {
     localStorage.removeItem('currentUser');
   }
-
 
   /**
    * Retrieves the serialized current user from local storage and updates the 'currentUser' property.
@@ -245,7 +239,6 @@ export class UserService {
   removeCurrentChatFromLocalStorage() {
     localStorage.removeItem('currentChat');
   }
-
 
   /**
    * This is for getting the collection "customers" from firebase 
@@ -306,7 +299,6 @@ export class UserService {
     this.chat.name = user.name;
   }
 
-
   /**
    * This function sets the document reference for a dm by combining the user id with the currentUser id
    * @param user 
@@ -320,7 +312,6 @@ export class UserService {
     this.chat.id = userId;
     return userId
   }
-
 
   /**
    * Sets values of user

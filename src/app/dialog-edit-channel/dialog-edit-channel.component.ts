@@ -30,7 +30,6 @@ export class DialogEditChannelComponent implements OnInit {
   @ViewChild('newName') newName!: ElementRef;
   @ViewChild('newDescription') newDescription!: ElementRef;
 
-
   constructor(
     public chatService: ChatService, @Optional() @Inject(MatDialogRef) public dialogRef: MatDialogRef<DialogEditChannelComponent> | undefined,
     public userService: UserService, public authService: AuthService, public router: Router, public dialog: MatDialog, public firestoreService: FirestoreService) {
@@ -41,7 +40,6 @@ export class DialogEditChannelComponent implements OnInit {
       this.dialogRef = undefined
     }
   }
-
 
   ngOnInit() {
     this.chatService.openChat$.subscribe((openChat) => {
@@ -69,7 +67,6 @@ export class DialogEditChannelComponent implements OnInit {
     }
   }
 
-
   /**
    * Performs cleanup by unsubscribing from any subscriptions to avoid memory leaks.
    */
@@ -78,7 +75,6 @@ export class DialogEditChannelComponent implements OnInit {
       this.unSubChannel();
     }
   }
-
 
   /**
    * Removes the current user from the channel members list and updates the Firestore document.
@@ -101,7 +97,6 @@ export class DialogEditChannelComponent implements OnInit {
     this.chatService.openChat = null;
   }
 
-
   /**
    * Sets new values for channel
    */
@@ -114,7 +109,6 @@ export class DialogEditChannelComponent implements OnInit {
     }
   }
 
-
   /**
    * Filters out the current user from the list of all channel members.
    */
@@ -126,7 +120,6 @@ export class DialogEditChannelComponent implements OnInit {
     }
   }
 
-
   /**
    * Logs out the current user and navigates back to the login screen.
    */
@@ -134,7 +127,6 @@ export class DialogEditChannelComponent implements OnInit {
     this.authService.signOutUser();
     this.router.navigate(['']);
   }
-
 
   /**
    * Opens the profile dialog for viewing the details of a specific user.
@@ -147,7 +139,6 @@ export class DialogEditChannelComponent implements OnInit {
     });
   }
 
-
   /**
    * Navigates back to the main chat window.
    */
@@ -155,20 +146,19 @@ export class DialogEditChannelComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-
+  /**
+   * 
+   */
   editChannel() {
     if (this.editName) {
       this.editName = false
       this.currentChat!.name = this.newName.nativeElement.value!;
-    } 
-     if(this.editDescription){
+    }
+    if (this.editDescription) {
       this.editDescription = false;
       this.currentChat!.description = this.newDescription.nativeElement.value!;
     }
     this.firestoreService.updateChannel('channels', this.currentChat!);
     this.userService.setCurrentChatToLocalStorage(this.currentChat!);
   }
-  
-  }
-
-
+}

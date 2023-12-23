@@ -47,7 +47,6 @@ import { MatListModule } from '@angular/material/list';
 import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
 import { NewMessageComponent } from './new-message/new-message.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +104,32 @@ import { NewMessageComponent } from './new-message/new-message.component';
       "messagingSenderId": "621137982901", 
       "appId": "1:621137982901:web:54b82e0dbda9aef71bd5fc"})),
     provideFirestore(() => getFirestore())],
+
+    provideFirebaseApp(() => initializeApp({
+      "projectId": "dabubble-dec6e",
+      "appId": "1:260526664736:web:1646199aec6fed465aa045",
+      "storageBucket": "dabubble-dec6e.appspot.com",
+      "apiKey": "AIzaSyA9gpqSDb0Sd0ZgwkB81Q6EPZ-Om-nPpbQ",
+      "authDomain": "dabubble-dec6e.firebaseapp.com",
+      "messagingSenderId": "260526664736"
+    })),
+    provideFirestore(() => getFirestore()),
+
+    // provideFirebaseApp(() => initializeApp({ 
+    //   "projectId": "dabubble-81b67", 
+    // "appId": "1:983219363350:web:25eacf514195e328531f37", 
+    // "storageBucket": "dabubble-81b67.appspot.com", 
+    // "apiKey": "AIzaSyDgZc98sYnuUz2Pb-WALAAI2W8_QSwTOUM",
+    //  "authDomain": "dabubble-81b67.firebaseapp.com",
+    //   "messagingSenderId": "983219363350" })),
+
+    // provideFirebaseApp(() => initializeApp({
+    //   "projectId": "dabubble-c4b96", "appId":
+    //     "1:390532295885:web:ad6cd75380acc256d50d84", "storageBucket": "dabubble-c4b96.appspot.com", "apiKey": "AIzaSyAEu4ozPAp4fPV6zGVHoY_x9YT8wbZrMs4",
+    //   "authDomain": "dabubble-c4b96.firebaseapp.com", "messagingSenderId": "390532295885"
+    // })),
+    // provideFirestore(() => getFirestore()),
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

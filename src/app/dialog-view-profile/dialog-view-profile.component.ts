@@ -40,12 +40,6 @@ export class DialogViewProfileComponent {
     this.setUser();
   }
 
-  ngOnInit() {
-  }
-
-
- 
-
   /**
    * Sets the user profile to be viewed.
    */
@@ -65,10 +59,10 @@ export class DialogViewProfileComponent {
     this.userService.currentUser = this.user;
     this.chatService.closeThread();
     await this.userService.updateUser(this.user);
-    this.authService.updateUserEmail(this.user.email!); 
+    this.authService.updateUserEmail(this.user.email!);
     this.dialogRef.close();
     await this.updateCurrentUserInChannel(this.user);
-    await this.updateChannelMessages(this.user);  
+    await this.updateChannelMessages(this.user);
     await this.updateCurrentUserInDirect(this.user);
     await this.updateDMMessages(this.user);
     if (this.chatService.isMobile) {
@@ -79,12 +73,9 @@ export class DialogViewProfileComponent {
     this.userService.profileEdited.emit();
   }
 
-  
-
   /**
    * Handles the selection of a new profile image file.
    * Validates the file size and uploads the image to the server, updating the user profile.
-   *
    * @param {Event} event - The file input change event containing the selected file.
    */
   onFileSelected(event: any): void {
@@ -125,35 +116,33 @@ export class DialogViewProfileComponent {
     this.dialogRef.close();
   }
 
-
   async updateCurrentUserInChannel(user: User) {
     await this.chatService.getallChannels();
     const yourChannels = this.chatService.yourChannels;
     for (const channel of yourChannels) {
       const currentUserIndex = channel.members.findIndex((member: { id: string | undefined; }) => member.id == user.id);
       if (currentUserIndex !== -1) {
-            channel.members[currentUserIndex].name = user.name;
-            channel.members[currentUserIndex].email = user.email;
-        }
-        const channelDocRef = doc(collection(this.firestore, 'channels'), channel.id);
-        if (channel.creatorId == user.id) {
-          await updateDoc(channelDocRef, {
-            members: channel.members,
-            creator: user.name
-          });
-        } else {
-          await updateDoc(channelDocRef, {
-            members: channel.members,
-          });
-        }
+        channel.members[currentUserIndex].name = user.name;
+        channel.members[currentUserIndex].email = user.email;
+      }
+      const channelDocRef = doc(collection(this.firestore, 'channels'), channel.id);
+      if (channel.creatorId == user.id) {
+        await updateDoc(channelDocRef, {
+          members: channel.members,
+          creator: user.name
+        });
+      } else {
+        await updateDoc(channelDocRef, {
+          members: channel.members,
+        });
+      }
     }
   }
 
-      
   async updateCurrentUserInDirect(user: User) {
     await this.chatService.loadAllDirectMessages();
     const yourDMs = this.chatService.yourDirectMessages;
-    for(const dm of yourDMs) {
+    for (const dm of yourDMs) {
       const currentUserIndex = dm.members.findIndex((member: { id: string | undefined; }) => member.id == user.id);
       if (currentUserIndex !== -1) {
         dm.members[currentUserIndex].name = user.name;
@@ -165,7 +154,6 @@ export class DialogViewProfileComponent {
       });
     }
   }
-
 
   async updateChannelMessages(user: User) {
     let channelMessages: any[];
@@ -182,7 +170,6 @@ export class DialogViewProfileComponent {
     })
   }
 
-
   async updateDMMessages(user: User) {
     let dmMessages: any[];
     await this.chatService.loadAllDirectMessages();
@@ -197,7 +184,6 @@ export class DialogViewProfileComponent {
       }
     })
   }
-
 
   updateLocalStorage(user: User) {
     this.currentChat = this.userService.getCurrentChatFromLocalStorage();
@@ -222,7 +208,6 @@ export class DialogViewProfileComponent {
       return
     }
   }
-
 
   async updateThreadMessages(user: User) {
     let threadMessages: any[];

@@ -8,12 +8,13 @@
         </header>
 
         <h3># {{currentChat?.name}}</h3>
-
         <div class="add-members-container">
-            <input class="w100 input-members" type="text" placeholder="Enter name" [(ngModel)]="searchInput" (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.addGroupInputFocused = true;">
+            <input class="w100 input-members" type="text" placeholder="Enter name" [(ngModel)]="searchInput"
+                (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.addGroupInputFocused = true;">
             <div class="user-search-container" *ngIf="addGroupInputFocused" (click)="userSelected($event)">
                 <div *ngIf="searchInput.trim() !== '' && firestoreService.filteredUsers.length !== 0">
-                    <button #userContainer class="user-container" *ngFor="let user of firestoreService.filteredUsers; let i = index"
+                    <button #userContainer class="user-container"
+                        *ngFor="let user of firestoreService.filteredUsers; let i = index"
                         (click)="selectUser(user, i)">
                         <div class="profile-container">
                             <img src="{{user.picture}}" alt="profile">
@@ -22,7 +23,8 @@
                         <span>{{user.name}}</span>
                     </button>
                 </div>
-                <span *ngIf="searchInput === '' || firestoreService.filteredUsers.length == 0">No matching contact</span>
+                <span *ngIf="searchInput === '' || firestoreService.filteredUsers.length == 0">No matching
+                    contact</span>
             </div>
             <div class="w100 selected-user-container">
                 <div class="selected-user" *ngFor="let item of this.selectedUsers">
@@ -34,7 +36,6 @@
                 </div>
             </div>
         </div>
-
         <div class="button-position w100">
             <button mat-button class="main-button primary" (click)="addChannelMember()">
                 Add

@@ -12,21 +12,25 @@
             </header>
         </mat-card-header>
         <mat-card-content>
-            <p>Channels serve your team for communication. Ideally, they should be topic-specific, for example, #marketing.</p>
+            <p>Channels serve your team for communication. Ideally, they should be topic-specific, for example,
+                #marketing.</p>
             <div class="channel-name w100">
                 <h3>Channel name</h3>
-                <input class="input-add-channel" maxlength="30" [(ngModel)]="channel.name" type="text" placeholder="e.g. Corporation Projects">
+                <input class="input-add-channel" maxlength="30" [(ngModel)]="channel.name" type="text"
+                    placeholder="e.g. Corporation Projects">
             </div>
             <div class="w100 description-container">
                 <div class="description">
                     <h3>Description</h3>
                     <span>(optional)</span>
                 </div>
-                <input class="input-add-channel" [(ngModel)]="channel.description" type="text" placeholder="Your message">
+                <input class="input-add-channel" [(ngModel)]="channel.description" type="text"
+                    placeholder="Your message">
             </div>
 
             <div class="create-container">
-                <button mat-button class="main-button primary" (click)="addMembers = true;" [disabled]="!channel.name || !channel.description">
+                <button mat-button class="main-button primary" (click)="addMembers = true;"
+                    [disabled]="!channel.name || !channel.description">
                     Create
                 </button>
             </div>
@@ -51,12 +55,14 @@
                 <mat-radio-button [value]="false">Add certain members</mat-radio-button>
             </mat-radio-group>
 
-
             <div class="add-members-container" *ngIf="allMembers == false" [ngClass]="{'show': allMembers === false}">
-                <input class="w100 input-members" type="text" placeholder="Enter name" [(ngModel)]="searchInput" (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.addChnlInputFocused = true;">
+                <input class="w100 input-members" type="text" placeholder="Enter name" [(ngModel)]="searchInput"
+                    (input)="firestoreService.filterAllUsers(searchInput)" (click)="this.addChnlInputFocused = true;">
                 <div class="user-search-container" *ngIf="addChnlInputFocused" (click)="userSelected($event)">
                     <div *ngIf="searchInput.trim() !== '' && firestoreService.filteredUsers.length !== 0">
-                        <button #userContainer class="user-container" *ngFor="let user of firestoreService.filteredUsers; let i = index" (click)="selectUser(user, i)">
+                        <button #userContainer class="user-container"
+                            *ngFor="let user of firestoreService.filteredUsers; let i = index"
+                            (click)="selectUser(user, i)">
                             <div class="profile-container">
                                 <img src="{{user.picture}}" alt="profile">
                                 <div class="online-status"></div>
@@ -64,7 +70,8 @@
                             <span>{{user.name}}</span>
                         </button>
                     </div>
-                    <span *ngIf="searchInput.trim() === '' || firestoreService.filteredUsers.length == 0">No matching contact</span>
+                    <span *ngIf="searchInput.trim() === '' || firestoreService.filteredUsers.length == 0">No matching
+                        contact</span>
                 </div>
                 <div class="w100 selected-user-container">
                     <div class="selected-user" *ngFor="let item of this.selectedUsers">
@@ -78,7 +85,8 @@
             </div>
 
             <div class="create-container">
-                <button mat-button class="main-button primary" [disabled]="selectedUsers.length < 1 && allMembers == false" (click)="createChannel()">
+                <button mat-button class="main-button primary"
+                    [disabled]="selectedUsers.length < 1 && allMembers == false" (click)="createChannel()">
                     Create
                 </button>
             </div>

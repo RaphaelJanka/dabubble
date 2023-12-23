@@ -1,44 +1,49 @@
 @media (max-width: 1279px) {
+
     .message-content,
     .my-message-content {
         font-size: 12px;
         max-width: 350px;
     }
+
     .name {
         font-size: 16px;
     }
+
     .date {
         font-size: 10px;
     }
+
     .comments {
         font-size: 12px;
     }
+
     .last-comment {
         font-size: 10px;
     }
+
     .time-box {
         border-radius: 10px;
         padding: 0px 8px;
         font-size: 10px;
     }
+
     .creator-picture-container {
         img {
             height: 50px;
             width: 50px;
         }
     }
+
     .profile-button {
         font-size: 18px;
+
         img {
             height: 50px;
             width: 50px;
-    
         }
     }
 }
-
-
-
 
 @media (max-width: 799px) {
     .header-mobile {
@@ -48,6 +53,7 @@
         height: 100px;
         align-items: center;
     }
+
     .profile-container {
         img {
             cursor: pointer;
@@ -56,18 +62,21 @@
             border-radius: 50%;
         }
     }
+
     mat-card {
         border-radius: 0 !important;
         height: calc(100vh - 92px);
         margin-right: 0;
     }
-    
+
     mat-card-header {
         padding: 0 16px;
     }
+
     h2 {
         font-size: 22px;
     }
+
     .chat-title {
         img {
             height: 26px;
@@ -75,36 +84,45 @@
             margin-bottom: 1px;
         }
     }
+
     .add-user {
         height: 40px;
         width: 40px;
+
         img {
             height: 22px;
             width: 22px;
         }
     }
+
     .logo-header-mobile {
         display: flex;
         align-items: center;
         gap: 8px;
+
         span {
             font-size: 22px !important;
             font-weight: bold !important;
         }
     }
+
     .logo {
         margin-right: 8px;
     }
+
     .headline {
         padding-top: 16px;
     }
+
     h1 {
         font-size: 24px !important;
         font-weight: bold !important;
     }
+
     .text-field-container {
         margin: 0;
     }
+
     .main-responsive {
         left: 133px !important;
     }
@@ -116,36 +134,41 @@
             font-size: 16px;
         }
     }
+
     .profile-container {
         img {
             height: 50px;
             width: 50px;
         }
     }
+
     .logo {
         height: 40px;
         margin-right: 0;
     }
+
     .logo-header-mobile {
         span {
             font-size: 18px !important;
         }
     }
+
     .main-responsive {
         left: 86px !important;
         border-radius: 32px !important;
         bottom: 84px;
     }
-    
 }
 
 @media (max-height: 900px) {
     .mt-thread {
         margin-top: 12px;
     }
+
     .comments-container {
         margin: 8px 0;
     }
+
     .message-row-container {
         margin-bottom: 8px;
         max-height: 300px;

@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-chat',
   templateUrl: './main-chat.component.html',
-  styleUrls:  ['./main-chat2.component.scss','./main-chat.component.scss','./main-chat.mediaquery.component.scss']
+  styleUrls: ['./main-chat2.component.scss', './main-chat.component.scss', './main-chat.mediaquery.component.scss']
 })
 
 export class MainChatComponent implements OnInit {
@@ -64,10 +64,8 @@ export class MainChatComponent implements OnInit {
       }
     });
     this.checkEventEmitter();
-   
   }
 
-  
   /**
    * Loads selected channel as currentChat
    * @param openChat 
@@ -90,7 +88,7 @@ export class MainChatComponent implements OnInit {
    * Loads channel from LocalStorage
    */
   loadChannelFromLocalStorage() {
-    this.currentChat = this.userService.getCurrentChatFromLocalStorage(); 
+    this.currentChat = this.userService.getCurrentChatFromLocalStorage();
     if (this.currentChat?.type == 'channel') {
       this.chatService.chatWindow = 'channel';
       this.firestoreService.loadChannelMessages(this.currentChat);
@@ -308,7 +306,7 @@ export class MainChatComponent implements OnInit {
     } else {
       this.chatService.openThread();
       if (window.innerWidth >= 800 && window.innerWidth < 1350)
-      this.chatService.closeWorkspace();
+        this.chatService.closeWorkspace();
     }
   }
 

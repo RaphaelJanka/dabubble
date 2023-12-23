@@ -142,7 +142,7 @@ export class DirectMessageChatComponent implements OnInit {
    * @param {any} id - The ID of the user whose profile is to be displayed.
    */
   openProfileDialog(id: any): void {
-    if(id){
+    if (id) {
       this.dialog.open(DialogViewProfileComponent, {
         panelClass: 'dialog-container',
         data: { userID: id },

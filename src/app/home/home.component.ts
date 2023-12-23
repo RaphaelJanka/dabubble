@@ -57,9 +57,9 @@ export class HomeComponent {
   checkClick(event: Event) {
     const clickedElement = event.target as HTMLElement;
     if (!clickedElement.classList.contains('home-search') && !clickedElement.classList.contains('user-search-container') && !clickedElement.classList.contains('user-container') && this.homeInputFocused && !clickedElement.classList.contains('input-members')) {
-      this.homeInputFocused = false;  
+      this.homeInputFocused = false;
       this.searchInput = '';
-    } 
+    }
   }
 
   /**
@@ -171,7 +171,6 @@ export class HomeComponent {
     }
   }
 
-
   /**
    * Retrieves and displays the channel associated with a specific message.
    * @param {any} message - The message used to identify the channel.
@@ -182,18 +181,16 @@ export class HomeComponent {
     this.homeInputFocused = false;
   }
 
-
   /**
    * Retrieves and displays the direct message chat associated with a specific message.
    * @param {any} message - The message used to identify the direct message chat.
    */
   selectDirectMessage(message: any) {
-    this.searchInput = '';    
+    this.searchInput = '';
     this.chatService.getDirectMessageByMessage(message);
     this.homeInputFocused = false;
   }
 }
-
 
 export class BottomSheetOverviewExampleSheet {
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) { }

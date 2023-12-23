@@ -154,7 +154,6 @@ export class AuthService {
     await this.finishSignOut();
   }
 
-
   async finishSignOut() {
     this.userService.currentUser = new User;
     this.chatService.openChat = null;
@@ -214,7 +213,7 @@ export class AuthService {
     } else {
       this.userService.currentUser.name = user.displayName || ""
       this.userService.currentUser.email = user.email || "";
-      this.userService.currentUser.picture = 'assets/img/icons/google.svg' || "";
+      this.userService.currentUser.picture = 'assets/img/icons/google.png' || "";
       this.userService.currentUser.online = true;
       this.userService.currentUser.loginTime = this.getLoginTime();
       this.userService.currentUser.id = user.uid;

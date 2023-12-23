@@ -29,15 +29,17 @@
     border-radius: 32px;
     padding: 4px 16px;
     cursor: pointer;
+
     &:hover {
         color: var(--purple3);
+
         svg path {
             fill: var(--purple3);
         }
     }
+
     svg {
         height: 32px;
         width: 32px;
     }
-
 }

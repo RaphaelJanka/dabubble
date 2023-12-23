@@ -24,10 +24,12 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    @media(min-width: 600px){
+
+    @media(min-width: 600px) {
         animation: toLeftTop 3s forwards;
     }
-    @media(max-width: 600px){
+
+    @media(max-width: 600px) {
         animation: toTop 3s forwards;
     }
 }
@@ -44,7 +46,6 @@
 
     img {
         height: 100%;
-        // width: 100%;
     }
 }
 
@@ -61,7 +62,7 @@
 .login-fields {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 30px;
     width: 100%;
 }
 
@@ -296,6 +297,7 @@ input {
 
     img {
         margin-left: 0;
+        height: 35px;
     }
 
     align-items: center;
@@ -410,9 +412,11 @@ form {
     0% {
         opacity: 1;
     }
+
     75% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
