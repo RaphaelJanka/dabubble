@@ -20,19 +20,32 @@
             <div class="message-avatar-container">
               <img src="{{this.threadService.currentMessage.profilePic}}" alt="" />
             </div>
-            <div class="message-container">
-              <div class="message-data">
-                <span class="name">{{this.threadService.currentMessage.creator}}</span>
-                <span class="date">{{this.threadService.currentMessage.time}}</span>
+            <div class="message-direction">
+
+              <div class="message-container">
+                <div class="message-data">
+                  <span class="name">{{this.threadService.currentMessage.creator}}</span>
+                  <span class="date">{{this.threadService.currentMessage.time}}</span>
+                </div>
+                <div *ngIf="threadService.currentMessage.content !== ''" class="message message-content">
+                  <span class="word-break">{{this.threadService.currentMessage.content}}</span>
+                  <a class="name-mention" (click)="openProfileDialog(mention['id'])" *ngFor="let mention of threadService.currentMessage.mentions">
+                    {{mention.name}}</a>
+                </div>
               </div>
-  
-              <div class="message message-content">
-                <span class="word-break">{{this.threadService.currentMessage.content}}</span>
-                <a (click)="openProfileDialog(mention['id'])" *ngFor="let mention of threadService.currentMessage.mentions">
-                @{{mention.name}}</a>
+
+              <div class="file-order">
+                <div *ngFor="let messagefile of this.threadService.currentMessage.files">
+                  <img class="upload-pic" *ngIf="this.authService.isImage(messagefile)"
+                    src="{{messagefile}}" alt="Angehängtes Bild">
+                  <div class="pdf" *ngIf="this.authService.isPDF(messagefile)">
+                    <img src="assets/img/icons/pdf.svg" alt="">
+                    <a href="{{messagefile}}" target="_blank">Show PDF</a>
+                  </div>
+                </div>
               </div>
             </div>
-  
+
           </div>
         </div>
       </section>
@@ -68,16 +81,18 @@
               <div class="message" [ngClass]="{'my-message-content': thread.creatorId == currentUser.id, 'message-content': thread.creatorId != currentUser.id, 'display-none': thread.content == '' && thread.mentions.length == 0,}"
                 *ngSwitchCase="false">
                 <a (click)="openProfileDialog(messagemention['id'])" *ngFor="let messagemention of thread.mentions">
-                  @{{messagemention['name']}}</a>
+                  &#64;{{messagemention['name']}}</a>
                 <span class="word-break">{{thread.content}}</span>
               </div>
 
-              <div *ngFor="let messagefile of thread.files">
-                <img style="max-height: 100px; margin-top: 10px;" *ngIf="this.authService.isImage(messagefile)"
-                  src="{{messagefile}}" alt="Angehängtes Bild">
-                <div class="pdf" *ngIf="this.authService.isPDF(messagefile)">
-                  <img src="assets/img/icons/pdf.svg" alt="">
-                  <a href="{{messagefile}}" target="_blank">Show PDF</a>
+              <div class="file-order">
+                <div *ngFor="let messagefile of thread.files">
+                  <img class="upload-pic" *ngIf="this.authService.isImage(messagefile)"
+                    src="{{messagefile}}" alt="Angehängtes Bild">
+                  <div class="pdf" *ngIf="this.authService.isPDF(messagefile)">
+                    <img src="assets/img/icons/pdf.svg" alt="">
+                    <a href="{{messagefile}}" target="_blank">Show PDF</a>
+                  </div>
                 </div>
               </div>
 

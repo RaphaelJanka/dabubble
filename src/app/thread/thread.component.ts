@@ -337,7 +337,7 @@ export class ThreadComponent implements OnInit {
     setTimeout(() => {
       this.message.files.push(this.authService.customPic);
       this.firestoreService.showSpinner = false;
-    }, 1500);
+    }, 3000);
     this.showUploadedFile = true;
   }
 

@@ -42,8 +42,8 @@
                 <div
                 [ngClass]="{'my-message-content': message.creatorId == currentUser.id, 'message-content': message.creatorId != currentUser.id,'display-none': message.content == '' && message.mentions.length == 0,}"
                 *ngSwitchCase="false">
-                  <a (click)="openProfileDialog(messagemention['id'])" *ngFor="let messagemention of message.mentions">
-                    @{{messagemention['name']}}</a>
+                  <a class="name-mention" (click)="openProfileDialog(messagemention['id'])" *ngFor="let messagemention of message.mentions">
+                    {{messagemention['name']}}</a>
                   <span class="word-break">{{ message.content }}</span>
                 </div>
                 <div class="d-flex">
@@ -139,7 +139,7 @@
       <span class="empty-room-description" *ngIf="getOtherUser(currentChat?.members)?.id !== currentUser.id">This
         conversation is only taking place between
         <span (click)="openProfileDialog(getOtherUser(currentChat?.members).id)"
-          class="user-highlighted">@{{getOtherUser(currentChat?.members).name }}</span> and you.
+          class="user-highlighted">{{getOtherUser(currentChat?.members).name }}</span> and you.
       </span>
       <span class="empty-room-description" *ngIf="getOtherUser(currentChat?.members)?.id === currentUser.id"><b>This
           room is just for you.</b> Take notes, list your to-dos, or keep links and files handy. Feel free to discuss

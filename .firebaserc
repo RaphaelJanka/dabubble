@@ -3,12 +3,12 @@
     "dabubble-c4b96": {
       "hosting": {
         "dabubble": [
-          "dabubble-c4b96"
+          "dabubble-a3b9c"
         ]
       }
     }
   },
   "projects": {
-    "default": "dabubble-c4b96"
+    "default": "dabubble-a3b9c"
   }
 }

@@ -243,6 +243,9 @@ mat-card {
         border-radius: 24px 0 24px 24px;
         background-color: var(--purple2);
         color: white;
+        .name-mention {
+            color: aqua;
+        }
     }
 
     .message-row-container {
@@ -262,7 +265,12 @@ mat-card {
     .d-flex-end {
         align-items: flex-end;
     }
+    .file-order {
+        justify-content: flex-end;
+    }
 }
+
+
 
 .message-box {
     display: flex;
@@ -292,6 +300,10 @@ mat-card {
     background-color: var(--primary);
     font-size: 18px;
     max-width: 600px;
+}
+
+.name-mention {
+    color: #ed1e79;
 }
 
 .message-row-container {
@@ -327,4 +339,10 @@ mat-card {
 
 .display-none {
     display: none;
+}
+
+.upload-pic {
+    max-height: 100px; 
+    margin-top: 10px;
+    border-radius: 32px;
 }

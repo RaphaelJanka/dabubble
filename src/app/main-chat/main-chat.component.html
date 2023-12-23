@@ -114,14 +114,14 @@
                       <div
                         [ngClass]="{'my-message-content': message.creatorId == currentUser.id, 'message-content': message.creatorId != currentUser.id,'display-none': message.content == '' && message.mentions.length == 0,}"
                         *ngSwitchCase="false">
-                        <a (click)="openProfileDialog(messagemention['id'])"
-                          *ngFor="let messagemention of message.mentions"> @{{messagemention['name']}}</a>
+                        <a class="name-mention" (click)="openProfileDialog(messagemention['id'])" *ngFor="let messagemention of message.mentions">{{messagemention['name']}} </a>
                         <span class="word-break">{{message.content}}</span>
                       </div>
-                      <div class="d-flex">
+                      
+                      <div class="file-order">
                         <div *ngFor="let messagefile of message.files">
-                          <img style="max-height: 100px; margin-top: 10px;" *ngIf="this.authService.isImage(messagefile)"
-                            src="{{messagefile}}" alt="Angehängtes Bild">
+                          <img class="upload-pic" *ngIf="this.authService.isImage(messagefile)"
+                            src="{{messagefile}}" alt="upload">
                           <div class="pdf" *ngIf="this.authService.isPDF(messagefile)">
                             <img src="assets/img/icons/pdf.svg" alt="">
                             <a href="{{messagefile}}" target="_blank">Show PDF</a>
@@ -217,7 +217,7 @@
         <button (click)="getUserNameString(user)" class="user-container" *ngFor="let user of this.userService.users">
           <div class="profile-container">
             <img src="{{user.picture}}" alt="profile">
-            this.userService.currentUser.picture
+            <div class="online-status"></div>
           </div>
           <span>{{user.name}}</span>
         </button>
@@ -233,7 +233,8 @@
               <div class="attachments">
                 <div class="border-right">
 
-                  <button class="mat-icon-button" type="submit"> <label class="custom-file-upload">
+                  <button class="mat-icon-button" type="submit"> 
+                    <label class="custom-file-upload">
                       <input class="dataInput" (change)="onFileSelected($event)" type="file" accept="image/jpeg, image/png, application/pdf" >
                       <img style="z-index: 100;" src="assets/img/icons/add.svg" alt="" />
                     </label>

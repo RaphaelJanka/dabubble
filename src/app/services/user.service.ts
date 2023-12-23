@@ -67,15 +67,15 @@ export class UserService {
       (err) => { console.log(err) })
       .then((docRef) => {
         this.updateUserId(item, docRef!.id);
-        this.addNewUserToCommunityChannel(item)
-        this.createDirectMessage(item)
+        this.addNewUserToCommunityChannel(item);
+        this.createDirectMessage(item);
       }
       )
   }
 
 
   async addNewUserToCommunityChannel(newUser: User) {
-    const communityRef = doc(collection(this.firestore, 'channels'), 'fEaYSlbmat8w3bdfmpIC');
+    const communityRef = doc(collection(this.firestore, 'channels'), 'pc0SH2i3MX85Uck7mLhd');
     try {
       const newUserJSON = newUser.toJSON();
       await updateDoc(communityRef, {

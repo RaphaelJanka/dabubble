@@ -183,10 +183,10 @@ export class MainChatComponent implements OnInit {
     if (this.currentChat) {
       this.message.creator = this.userService.currentUser.name;
       this.message.creatorId = this.userService.currentUser.id,
-        this.message.channel = this.currentChat.name;
+      this.message.channel = this.currentChat.name;
       this.message.channelID = this.currentChat.id;
       this.message.profilePic = this.userService.currentUser.picture,
-        this.message.channel = this.currentChat.name;
+      this.message.channel = this.currentChat.name;
       this.message.channel = this.currentChat.name;
     }
   }
@@ -398,7 +398,7 @@ export class MainChatComponent implements OnInit {
     setTimeout(() => {
       this.message.files.push(this.authService.customPic);
       this.firestoreService.showSpinner = false;
-    }, 2000);
+    }, 3000);
     this.showUploadedFile = true;
   }
 }

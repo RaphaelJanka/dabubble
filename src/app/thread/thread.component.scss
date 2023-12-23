@@ -24,6 +24,10 @@ h2 {
     font-size: 20px;
 }
 
+.name-mention {
+    color: #ed1e79;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -134,6 +138,12 @@ header {
         width: 16px;
     }
 }
+.message-direction {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+}
 
 .my-messages {
     .message-box {
@@ -146,6 +156,9 @@ header {
 
     .message-data {
         flex-direction: row-reverse;
+    }
+    .file-order {
+        justify-content: flex-end;
     }
 }
 
@@ -227,6 +240,9 @@ header {
     color: white;
     padding: 12px 16px;
     max-width: 280px;
+    .name-mention {
+        color: aqua;
+    }
 }
 
 .message-content {
@@ -364,4 +380,16 @@ header {
 
 .thread-search {
     left: 113px !important;
+}
+
+.upload-pic {
+    max-height: 100px; 
+    margin-top: 10px;
+    border-radius: 32px;
+}
+
+.file-order {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
