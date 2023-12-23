@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { DialogViewProfileComponent } from './dialog-view-profile/dialog-view-profile.component';
-import { ImprintComponent } from './imprint/imprint.component';
+import { ImprintComponent } from './legal-notice/imprint.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { MainChatComponent } from './main-chat/main-chat.component';
 import { DialogEditChannelComponent } from './dialog-edit-channel/dialog-edit-channel.component';

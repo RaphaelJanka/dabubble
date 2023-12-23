@@ -38,7 +38,7 @@ import { DialogAddChannelComponent } from './dialog-add-channel/dialog-add-chann
 import { DialogAddToGroupComponent } from './dialog-add-to-group/dialog-add-to-group.component';
 import { DialogShowGroupMemberComponent } from './dialog-show-group-member/dialog-show-group-member.component';
 import { FormsModule } from '@angular/forms';
-import { ImprintComponent } from './imprint/imprint.component';
+import { ImprintComponent } from './legal-notice/imprint.component';
 import { DirectMessageChatComponent } from './direct-message-chat/direct-message-chat.component';
 import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 import { PrivacyComponent } from './privacy/privacy.component';
