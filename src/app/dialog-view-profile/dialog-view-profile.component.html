@@ -25,21 +25,13 @@
                 <span style="color: #92c83e;">Active</span>
             </div>
         </div>
-        <div *ngIf="!userService.currentUser.name?.startsWith('Guest')" class="email-container">
+        <div class="email-container">
             <div class="mail-icon mr-16">
                 <img src="assets/img/icons/mail.svg" alt="">
             </div>
             <div class="email">
                 <h2>E-Mail Adress</h2>
                 <a matTooltip="Mail to" href="mailto:{{user.email}}">{{user.email}}</a>
-            </div>
-        </div>
-        <div *ngIf="userService.currentUser.name?.startsWith('Guest')" class="email-container">
-            <div class="mail-icon mr-16">
-                <img src="assets/img/icons/mail.svg" alt="">
-            </div>
-            <div class="email">
-                <h2>Guest</h2>
             </div>
         </div>
         <div class="message-button-container">
