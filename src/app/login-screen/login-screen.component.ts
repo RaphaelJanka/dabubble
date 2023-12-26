@@ -6,11 +6,32 @@ import { AuthService } from '../services/auth.service';
 import { User } from 'src/models/user.class';
 import { FirestoreService } from '../services/firestore.service';
 import { ChatService } from '../services/chat.service';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
-  styleUrls: ['./login-screen.component.scss', './login-screen-mediaquery.scss']
+  styleUrls: ['./login-screen.component.scss', './login-screen-mediaquery.scss'],
+  animations: [
+    trigger('toLeftTop', [
+      transition(':enter', [
+        animate('2.8s', keyframes([
+          style({ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', offset: 0 }),
+          style({ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', offset: 0.66 }),
+          style({ top: '50px', left: '50px', offset: 1 }),
+        ])),
+      ]),
+    ]),
+    trigger('toTop', [
+      transition(':enter', [
+        animate('2.8s', keyframes([
+          style({ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', offset: 0 }),
+          style({ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', offset: 0.66 }),
+          style({ top: '50px', left: '50%', transform: 'translate(-50%, 0)', offset: 1 }),
+        ])),
+      ]),
+    ]),
+  ],
 })
 
 export class LoginScreenComponent implements OnInit {
@@ -26,12 +47,16 @@ export class LoginScreenComponent implements OnInit {
   showUserCreatedSuccess = false;
   showEmailSent = false;
   selectedImageIndex: number | null = null
+  toTopWidth: boolean = false;
+  toTopHeight: boolean = false;
 
   ngOnInit() {
     this.hideContentAfterAnimation();
   }
 
-  constructor(public userService: UserService, public router: Router, public authService: AuthService, public firestoreService: FirestoreService, public chatService: ChatService) { }
+  constructor(public userService: UserService, public router: Router, public authService: AuthService, public firestoreService: FirestoreService, public chatService: ChatService) { 
+    this.checkAnimation();
+  }
 
   getEmailForNewPassword = new FormGroup({
     emailForReset: new FormControl('', [Validators.required, Validators.email]),
@@ -327,5 +352,10 @@ export class LoginScreenComponent implements OnInit {
       this.router.navigate(['home']);
       this.chatService.chatWindow = 'empty';
     }, 1000);
+  }
+
+  checkAnimation() {
+    this.toTopWidth = window.innerWidth < 600;
+    this.toTopHeight = window.innerHeight < 700;
   }
 }

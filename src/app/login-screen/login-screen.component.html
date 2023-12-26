@@ -4,7 +4,13 @@
 <div *ngIf="showEmailSent == true" class="account-popup"><span>E-mail sent</span></div>
 <div *ngIf="!animationIsFinished" class="start-animation-container">
   <div class="animated-content-container">
-    <div class="animation-content">
+    <div *ngIf="!toTopWidth && !toTopHeight"  [@toLeftTop] class="animation-content">
+      <div class="start-animation-logo">
+        <img src="assets\img\icons\logo.svg">
+      </div>
+      <span class="start-animation-span">DABubble</span>
+    </div>
+    <div *ngIf="toTopWidth || toTopHeight" [@toTop] class="animation-content">
       <div class="start-animation-logo">
         <img src="assets\img\icons\logo.svg">
       </div>

@@ -38,7 +38,6 @@ export class ChatService {
   workspaceOpen: boolean = true;
   threadOpen: boolean = true;
 
-  // -------------- channel -----------------------
   get openChat$(): Observable<Channel | null> {
     return this._openChatSubject.asObservable();
   }
@@ -47,7 +46,6 @@ export class ChatService {
     this._openChatSubject.next(channel);
   }
 
-  // ----------------- Direct Message --------------------------
   get openDirectMessage$(): Observable<Chat | null> {
     return this._openDirectMessageSubject.asObservable();
   }
@@ -55,8 +53,6 @@ export class ChatService {
   set openDirectMessage(chat: Chat | null) {
     this._openDirectMessageSubject.next(chat);
   }
-
-  // Create direct messages ------------------------------
 
   constructor(public userService: UserService, public router: Router) {
     this.getallChannels();
@@ -169,8 +165,6 @@ export class ChatService {
     }
   }
 
-  //------------------------------------------------------------------------------------
-
   /**
    * This function sets the document reference for a dm by combining the user id with the currentUser id
    * @param user 
@@ -236,8 +230,6 @@ export class ChatService {
       name: user.name, email: user.email, password: user.password, id: user.id, picture: user.picture,
     };
   }
-
-  // ---------------- Search function ----------------------------------------------
 
   /**
    * Loads all channels 
@@ -392,4 +384,5 @@ export class ChatService {
     let emptyChatJson = JSON.stringify(emptyChat);
     localStorage.setItem('currentChat', emptyChatJson);
   }
+
 }
